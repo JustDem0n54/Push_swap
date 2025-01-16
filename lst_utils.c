@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:31:08 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/14 17:34:53 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:05:34 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,17 @@ t_list	*ft_lstnew(int a)
 	new->prev = NULL;
 	return (new);
 }
+
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}
+

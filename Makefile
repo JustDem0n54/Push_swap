@@ -35,7 +35,7 @@ $(OBJDIR):
 	@mkdir -p $(OBJDIR)
 
 $(OBJDIR)/%.o: %.c | $(OBJDIR)
-	@cc $(FLAGS) -c $< -o $@
+	@cc $(CFLAGS) -c $< -o $@
 
 clean:
 	@echo "${RED}Cleaning...${RESET}"
