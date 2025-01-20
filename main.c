@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:14:01 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/16 17:19:03 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:20:54 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,30 +88,100 @@ int	init_list(t_var *var, int argc, char **argv)
 	return (0);
 }
 
-int	main(int argc, char **argv)
+void	for_2(t_var *var)
 {
-	t_var	*var;
-	void	*tem;
-	int		i;
+	if (var->a->next->i < var->a->i)
+		ra(var);
+}
 
+void	set_bounds(t_var *var)
+{
+	int	i;
+
+	i = 0;
+	var->mark = ft_calloc(var->nbg + 1, sizeof(int));
+	while (i <= var->nbg)
+	{
+		var->mark[i] = var->val[(var->size - 1) * i / var->nbg];
+		i++;
+	}
+	var->mark[var->nbg];
+}
+
+void	make_block(t_var *var)
+{
+	int size;
+	int i;
+	int count;
+	
+	size = ft_lstsize(var->a);
+	i = size / 10;
+	count = 0;
+	while (var->a)
+	{
+		if (count == 20)
+		{
+			i = i + (size / 10);
+			count = 0;
+			if (i >= 50)
+				return ;
+		}
+		else if (var->a->i >= var->val[size / 2] && var->a->i <= var->val[(size / 2) + i])
+		{	
+			pb(var);
+			count++;
+			ft_printf("%dcheck", i);
+		}
+		else if (var->a->i >= var->val[(size / 2) - i] && var->a->i < var->val[(size / 2)])
+		{
+			count++;
+			pb(var);
+			rb(var);
+			ft_printf("%dcheck", i);
+		}
+		else
+			ra(var);
+	}
+}
+
+void	init_val(t_var *var, int argc)
+{
 	var = malloc(sizeof(t_var) * 1);
 	var->a = NULL;
 	var->b = NULL;
 	var->ref = NULL;
-	tem = NULL;
-	i = 0;
+	var->nbg = 0;
+	var->mark = 0;
+	var->size = argc - 1;
+}
+
+void	by_size(t_var *var)
+{
+	if (var->size == 2)
+		for_2(var);
+}
+
+int	main(int argc, char **argv)
+{
+	t_var	*var;
+	
+	if (argc > 2)
+	{
+		init_val(var, argc);
+		if (init_list(var, argc, argv) == 1)
+			return (0);
+		by_size(var);
+	}
 	if (init_list(var, argc, argv) == 1)
 		return (0);
-	while (var->ref)
+	if (argc == 3)
+		for_2(var);
+	make_block(var);
+	// ft_printf("\n");
+	while (var->b)
 	{
-		ft_printf("%d\n", var->ref->i);
-		var->ref = var->ref->next;
-	}
-	ft_printf("\n");
-	while (i < ft_lstsize(var->a))
-	{
-		ft_printf("%d\n", var->val[i]);
-		i++;
+		ft_printf("%d\n", var->b->i);
+		var->b = var->b->next;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:22:11 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/16 17:13:25 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:32:06 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ typedef struct s_var
 	t_list *b;
 	t_list *ref;
 	int *val;
+	int nbg;
+	int *mark;
+	int size;
 }	t_var;
 
 
