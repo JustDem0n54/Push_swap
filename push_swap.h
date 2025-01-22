@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:22:11 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/20 15:32:06 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:23:50 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_var
 	int nbg;
 	int *mark;
 	int size;
+	int	*count;
 }	t_var;
 
 
@@ -51,6 +52,14 @@ void	pa(t_var *var);
 void	rra(t_var *var);
 void	rrb(t_var *var);
 void	rrr(t_var *var);
-int	ft_lstsize(t_list *lst);
+int		ft_lstsize(t_list *lst);
+void	make_block(t_var *var);
+void	count_mark(t_var *var);
+void	more_than_9(t_var *var);
+void	set_mark(t_var *var);
+void	ft_bzero(void *s, size_t n);
+int		ft_atoi(const char *str);
+void	*ft_calloc(size_t count, size_t size);
+int		ft_lstadd_ref(t_list **lst, t_list *new);
 
 # endif

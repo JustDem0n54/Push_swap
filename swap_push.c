@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:30:03 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/16 14:04:43 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:06:52 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	sa(t_var *var)
 		temp = var->a->i;
 		var->a->i = var->a->next->i;
 		var->a->next->i = temp;
+		ft_printf("sa\n");
 	}
 }
 
@@ -33,13 +34,27 @@ void	sb(t_var *var)
 		temp = var->b->i;
 		var->b->i = var->b->next->i;
 		var->b->next->i = temp;
+		ft_printf("sb\n");
 	}
 }
 
 void	ss(t_var *var)
 {
-	sa(var);
-	sb(var);
+	int	temp;
+
+	if (var->a != NULL && var->a->next != NULL)
+	{
+		temp = var->a->i;
+		var->a->i = var->a->next->i;
+		var->a->next->i = temp;
+	}
+	if (var->b != NULL && var->b->next != NULL)
+	{
+		temp = var->b->i;
+		var->b->i = var->b->next->i;
+		var->b->next->i = temp;
+	}
+	ft_printf("ss\n");
 }
 
 void	pb(t_var *var)
@@ -53,6 +68,7 @@ void	pb(t_var *var)
 		temp = var->a;
 		var->a = var->a->next;
 		free(temp);
+		ft_printf("pb\n");
 	}
 }
 
@@ -68,5 +84,6 @@ void	pa(t_var *var)
 		temp = var->b;
 		var->b = var->b->next;
 		free(temp);
+		ft_printf("pa\n");
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:28:16 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/16 13:37:42 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:07:15 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ra(t_var *var)
 		temp->next = NULL;
 		temp->prev = temp2;
 		var->a->prev = NULL;
+		ft_printf("ra\n");
 	}
 }
 
@@ -47,11 +48,34 @@ void	rb(t_var *var)
 		temp->next = NULL;
 		temp->prev = temp2;
 		var->b->prev = NULL;
+		ft_printf("rb\n");
 	}
 }
 
 void	rr(t_var *var)
 {
-	ra(var);
-	rb(var);
+	t_list	*temp;
+	t_list	*temp2;
+
+	temp = NULL;
+	temp2 = NULL;
+	if ((var->a != NULL && var->a->next != NULL) 
+		&& (var->b != NULL && var->b->next != NULL))
+	{
+		temp = var->a;
+		var->a = var->a->next;
+		temp2 = ft_lstlast(var->a);
+		temp2->next = temp;
+		temp->next = NULL;
+		temp->prev = temp2;
+		var->a->prev = NULL;
+		temp = var->b;
+		var->b = var->b->next;
+		temp2 = ft_lstlast(var->b);
+		temp2->next = temp;
+		temp->next = NULL;
+		temp->prev = temp2;
+		var->b->prev = NULL;
+		ft_printf("rr\n");
+	}
 }
