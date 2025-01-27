@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:14:01 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/22 17:24:46 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/27 17:13:56 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void	by_size(t_var *var)
 {
 	if (var->size == 2)
 		for_2(var);
-	// if (var->size > 2 && var->size < 10)
-	// 	for_3_or_more(var);
+	if (var->size == 3)
+		for_3(var);
 	if (var->size > 9 && var->size < 100)
 	{
 		var->nbg = 5;
@@ -84,9 +84,23 @@ void	by_size(t_var *var)
 	}
 }
 
-void	for_3_or_more(t_var *var)
+void	for_4_and_5(t_var *var)
 {
 	
+}
+
+void	for_3(t_var *var)
+{
+	if (var->a->i > ft_lstlast(var->a)->i)
+		ra(var);
+	if (var->a->i > var->a->next->i)
+		sa(var);
+	if (var->a->next->i > ft_lstlast(var->a)->i)
+	{
+		ra(var);
+		sa(var);
+		rra(var);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -101,16 +115,16 @@ int	main(int argc, char **argv)
 			return (0);
 		by_size(var);
 	}
-	while (var->b)
-	{
-		ft_printf("%d\n", var->b->i);
-		var->b = var->b->next;
-	}
-	ft_printf("\n");
 	while (var->a)
 	{
 		ft_printf("%d\n", var->a->i);
 		var->a = var->a->next;
+	}
+	ft_printf("\n");
+	while (var->b)
+	{
+		ft_printf("%d\n", var->b->i);
+		var->b = var->b->next;
 	}
 	return (0);
 }
