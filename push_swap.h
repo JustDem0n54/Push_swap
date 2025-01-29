@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:22:11 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/27 15:12:12 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:40:28 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_var
 	int *mark;
 	int size;
 	int	*count;
+	int rule1;
+	int rule2;
 }	t_var;
 
 
@@ -62,5 +64,11 @@ int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_lstadd_ref(t_list **lst, t_list *new);
 void	for_3(t_var *var);
+void	for_4_and_5(t_var *var);
+void	for_2(t_var *var);
+void	inesert_after_1(t_var *var);
+void	inesert_before_last(t_var *var);
+void	sort_it(t_var *var);
+int		check_distance(t_var *var, int max);
 
 # endif

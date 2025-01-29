@@ -11,6 +11,7 @@ FILE = main.c \
 		reverse_rotate.c \
 		hundred.c \
 		utils.c \
+		under_hundred.c \
 
 PRINTF = ft_printf/ft_printf.a
 RM = rm -f

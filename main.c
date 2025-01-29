@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:14:01 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/27 17:13:56 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:40:43 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,6 @@ int	init_list(t_var *var, int argc, char **argv)
 	return (0);
 }
 
-void	for_2(t_var *var)
-{
-	if (var->a->next->i < var->a->i)
-		ra(var);
-}
-
 t_var	*init_val(int argc)
 {
 	t_var *var;
@@ -58,6 +52,8 @@ t_var	*init_val(int argc)
 	var->mark = 0;
 	var->count = 0;
 	var->size = argc - 1;
+	var->rule1 = 0;
+	var->rule2 = 0;
 	return (var);
 }
 
@@ -65,42 +61,39 @@ void	by_size(t_var *var)
 {
 	if (var->size == 2)
 		for_2(var);
-	if (var->size == 3)
+	else if (var->size == 3)
 		for_3(var);
-	if (var->size > 9 && var->size < 100)
+	else if (var->size == 4 || var->size == 5)
+		for_4_and_5(var);
+	else if (var->size < 100)
 	{
 		var->nbg = 5;
 		more_than_9(var);
 	}
-	if (var->size >= 100 && var->size < 500)
+	else if (var->size >= 100 && var->size < 500)
 	{
 		var->nbg = 8;
 		more_than_9(var);
 	}
-	if (var->size >= 500)
+	else if (var->size >= 500)
 	{
-		var->nbg = 16;
+		var->nbg = 20;
 		more_than_9(var);
 	}
 }
 
-void	for_4_and_5(t_var *var)
+int	check_list(t_var *var)
 {
+	t_list	*temp;
 	
-}
-
-void	for_3(t_var *var)
-{
-	if (var->a->i > ft_lstlast(var->a)->i)
-		ra(var);
-	if (var->a->i > var->a->next->i)
-		sa(var);
-	if (var->a->next->i > ft_lstlast(var->a)->i)
+	temp = var->a;
+	while (temp->next)
 	{
-		ra(var);
-		sa(var);
-		rra(var);
+		if (temp->next->i < temp->i)
+			return (1);
+		temp = temp->next;
 	}
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -113,18 +106,19 @@ int	main(int argc, char **argv)
 		var = init_val(argc);
 		if (init_list(var, argc, argv) == 1)
 			return (0);
-		by_size(var);
+		if (check_list(var) == 1)
+			by_size(var);
 	}
-	while (var->a)
-	{
-		ft_printf("%d\n", var->a->i);
-		var->a = var->a->next;
-	}
-	ft_printf("\n");
-	while (var->b)
-	{
-		ft_printf("%d\n", var->b->i);
-		var->b = var->b->next;
-	}
+	// while (var->a)
+	// {
+	// 	ft_printf("%d\n", var->a->i);
+	// 	var->a = var->a->next;
+	// }
+	// ft_printf("\n");
+	// while (var->b)
+	// {
+	// 	ft_printf("%d\n", var->b->i);
+	// 	var->b = var->b->next;
+	// }
 	return (0);
 }
