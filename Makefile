@@ -9,9 +9,12 @@ FILE = main.c \
 		rotate.c \
 		swap_push.c \
 		reverse_rotate.c \
-		hundred.c \
+		make_block.c \
 		utils.c \
 		under_hundred.c \
+		sort_list.c \
+		utils2.c \
+		
 
 PRINTF = ft_printf/ft_printf.a
 RM = rm -f

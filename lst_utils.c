@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:31:08 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/16 17:05:34 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 15:05:52 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
-

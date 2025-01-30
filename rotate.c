@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:28:16 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/22 17:07:15 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 15:21:53 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	rr(t_var *var)
 
 	temp = NULL;
 	temp2 = NULL;
-	if ((var->a != NULL && var->a->next != NULL) 
+	if ((var->a != NULL && var->a->next != NULL)
 		&& (var->b != NULL && var->b->next != NULL))
 	{
 		temp = var->a;

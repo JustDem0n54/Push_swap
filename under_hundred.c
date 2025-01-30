@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:30:03 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/29 11:02:06 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 15:33:59 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,24 @@ void	for_3(t_var *var)
 			sa(var);
 	}
 	else if (var->a->i < ft_lstlast(var->a)->i
-			&& var->a->next->i < ft_lstlast(var->a)->i)
+		&& var->a->next->i < ft_lstlast(var->a)->i)
 	{
 		if (var->a->i > var->a->next->i)
 			sa(var);
 	}
 }
 
-void	for_4_and_5(t_var *var)
+void	pb_4_5(t_var *var, int i)
 {
-	int i;
-	
-	i = 1;
-	if (var->size == 5)
-		i = 2;
 	while (i > 0)
 	{
-		if (var->a->i == var->val[0] || var->a->i == var->val[1])
+		if (var->size == 5
+			&& (var->a->i == var->val[0] || var->a->i == var->val[1]))
+		{
+			pb(var);
+			i--;
+		}
+		else if (var->size == 4 && var->a->i == var->val[0])
 		{
 			pb(var);
 			i--;
@@ -57,9 +58,34 @@ void	for_4_and_5(t_var *var)
 		else
 			ra(var);
 	}
+}
+
+void	for_4_and_5(t_var *var)
+{
+	int	i;
+
+	i = 1;
+	if (var->size == 5)
+		i = 2;
+	pb_4_5(var, i);
 	for_3(var);
-	if (var->b->i < var->b->next->i)
+	if (var->size == 5 && var->b->i < var->b->next->i)
 		rb(var);
+	if (var->size == 5)
+		pa(var);
 	pa(var);
-	pa(var);
+}
+
+int	check_char(char *str, int temp)
+{
+	char *comp;
+
+	comp = ft_itoa(temp);
+	if (ft_strcmp(comp, str) != 0)
+	{
+		free(comp);
+		return (1);
+	}
+	free(comp);
+	return(0);
 }

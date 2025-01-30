@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:14:01 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/29 15:40:43 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 15:34:18 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 int	init_list(t_var *var, int argc, char **argv)
 {
-	int	i;
-	int	temp;
+	int		i;
+	int		temp;
 	t_list	*mem;
 
 	i = 1;
-	temp = 0;
 	while (i < argc)
 	{
 		temp = ft_atoi(argv[i]);
+		if (check_char(argv[i], temp) == 1)
+			return(ft_error(), 1);
 		ft_lstadd_back(&(var->a), ft_lstnew(temp));
 		if (ft_lstadd_ref(&(var->ref), ft_lstnew(temp)) == 2)
-			return(1);
+			return (ft_error(), 1);
 		i++;
 	}
 	i = 0;
@@ -42,7 +43,7 @@ int	init_list(t_var *var, int argc, char **argv)
 
 t_var	*init_val(int argc)
 {
-	t_var *var;
+	t_var	*var;
 
 	var = malloc(sizeof(t_var) * 1);
 	var->a = NULL;
@@ -77,7 +78,7 @@ void	by_size(t_var *var)
 	}
 	else if (var->size >= 500)
 	{
-		var->nbg = 20;
+		var->nbg = 14;
 		more_than_9(var);
 	}
 }
@@ -85,11 +86,11 @@ void	by_size(t_var *var)
 int	check_list(t_var *var)
 {
 	t_list	*temp;
-	
+
 	temp = var->a;
 	while (temp->next)
 	{
-		if (temp->next->i < temp->i)
+		if (temp->i > temp->next->i)
 			return (1);
 		temp = temp->next;
 	}
@@ -99,26 +100,19 @@ int	check_list(t_var *var)
 int	main(int argc, char **argv)
 {
 	t_var	*var;
-	
+
 	var = NULL;
-	if (argc > 2)
+	if (argc >= 2)
 	{
 		var = init_val(argc);
 		if (init_list(var, argc, argv) == 1)
+		{
+			ft_free(var);
 			return (0);
+		}
 		if (check_list(var) == 1)
 			by_size(var);
+		ft_free(var);
 	}
-	// while (var->a)
-	// {
-	// 	ft_printf("%d\n", var->a->i);
-	// 	var->a = var->a->next;
-	// }
-	// ft_printf("\n");
-	// while (var->b)
-	// {
-	// 	ft_printf("%d\n", var->b->i);
-	// 	var->b = var->b->next;
-	// }
 	return (0);
 }

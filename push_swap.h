@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:22:11 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/29 15:40:28 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 15:34:36 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,24 @@
 
 typedef struct s_list
 {
-	int		i;
+	int				i;
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
 
 typedef struct s_var
 {
-	t_list *a;
-	t_list *b;
-	t_list *ref;
-	int *val;
-	int nbg;
-	int *mark;
-	int size;
-	int	*count;
-	int rule1;
-	int rule2;
+	t_list	*a;
+	t_list	*b;
+	t_list	*ref;
+	int		*val;
+	int		nbg;
+	int		*mark;
+	int		size;
+	int		*count;
+	int		rule1;
+	int		rule2;
 }	t_var;
-
 
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
@@ -70,5 +69,14 @@ void	inesert_after_1(t_var *var);
 void	inesert_before_last(t_var *var);
 void	sort_it(t_var *var);
 int		check_distance(t_var *var, int max);
+int		check_list(t_var *var);
+void	ft_lstclear(t_list **lst);
+void	pb_4_5(t_var *var, int i);
+char	*ft_itoa(int n);
+size_t	ft_strlenint(long n);
+int		ft_strcmp(const char *s1, const char *s2);
+void	ft_error(void);
+void	ft_free(t_var *var);
+int		check_char(char *str, int temp);
 
-# endif
+#endif
