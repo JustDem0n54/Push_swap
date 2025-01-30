@@ -6,13 +6,13 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:28:16 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/30 15:21:53 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 19:13:44 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_var *var)
+void	ra(t_var *var, int i)
 {
 	t_list	*temp;
 	t_list	*temp2;
@@ -28,11 +28,12 @@ void	ra(t_var *var)
 		temp->next = NULL;
 		temp->prev = temp2;
 		var->a->prev = NULL;
-		ft_printf("ra\n");
+		if (i == 1)
+			ft_printf("ra\n");
 	}
 }
 
-void	rb(t_var *var)
+void	rb(t_var *var, int i)
 {
 	t_list	*temp;
 	t_list	*temp2;
@@ -48,11 +49,12 @@ void	rb(t_var *var)
 		temp->next = NULL;
 		temp->prev = temp2;
 		var->b->prev = NULL;
-		ft_printf("rb\n");
+		if (i == 1)
+			ft_printf("rb\n");
 	}
 }
 
-void	rr(t_var *var)
+void	rr(t_var *var, int i)
 {
 	t_list	*temp;
 	t_list	*temp2;
@@ -76,6 +78,7 @@ void	rr(t_var *var)
 		temp->next = NULL;
 		temp->prev = temp2;
 		var->b->prev = NULL;
-		ft_printf("rr\n");
+		if (i == 1)
+			ft_printf("rr\n");
 	}
 }

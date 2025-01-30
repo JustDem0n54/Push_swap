@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:22:11 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/30 16:49:10 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 19:10:58 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include "ft_printf/ft_printf.h"
+
+# define BUFFER_SIZE 20
 
 typedef struct s_list
 {
@@ -42,17 +44,17 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstnew(int a);
-void	sa(t_var *var);
-void	sb(t_var *var);
-void	ss(t_var *var);
-void	ra(t_var *var);
-void	rb(t_var *var);
-void	rr(t_var *var);
-void	pb(t_var *var);
-void	pa(t_var *var);
-void	rra(t_var *var);
-void	rrb(t_var *var);
-void	rrr(t_var *var);
+void	sa(t_var *var, int i);
+void	sb(t_var *var, int i);
+void	ss(t_var *var, int i);
+void	ra(t_var *var, int i);
+void	rb(t_var *var, int i);
+void	rr(t_var *var, int i);
+void	pb(t_var *var, int i);
+void	pa(t_var *var, int i);
+void	rra(t_var *var, int i);
+void	rrb(t_var *var, int i);
+void	rrr(t_var *var, int i);
 int		ft_lstsize(t_list *lst);
 void	make_block(t_var *var);
 void	count_mark(t_var *var);
@@ -81,5 +83,9 @@ int		check_char(char *str, int temp);
 void	init_array(t_var *var);
 void	by_size(t_var *var);
 int		init_list(t_var *var, int argc, char **argv);
+char	*get_next_line(int fd);
+char	*ft_strcpy(char *str);
+char	*read_check(char *str, int fd, char *buff);
+char	*create_storage(char *str);
 
 #endif

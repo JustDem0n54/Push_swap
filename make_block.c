@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 17:12:01 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/30 16:51:55 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 19:15:50 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	check_value(t_var *var, int nb)
 {
 	if (var->a)
 	{
+		if (nb < 0)
+			return (0);
 		if ((var->a->i >= var->mark[nb]) && var->a->i < var->mark[nb + 1])
 		{
 			(var->count[nb])--;
@@ -78,18 +80,18 @@ void	make_block(t_var *var)
 	{
 		if (check_value(var, i) == 1)
 		{
-			pb(var);
+			pb(var, 1);
 			if (var->count[i] == 0)
 				i++;
 		}
 		else if (check_value(var, j) == 1)
 		{
-			pb(var);
-			rb(var);
+			pb(var, 1);
+			rb(var, 1);
 			if (var->count[j] == 0)
 				j--;
 		}
 		else
-			ra(var);
+			ra(var, 1);
 	}
 }

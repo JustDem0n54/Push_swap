@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:04:40 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/30 18:11:42 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 19:11:37 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,16 @@ void	for_min(t_var *var, int min)
 	if (var->rule1 == 1)
 	{
 		while (i-- != 0)
-			rb(var);
-		pa(var);
-		ra(var);
+			rb(var, 1);
+		pa(var, 1);
+		ra(var, 1);
 	}
 	else if (var->rule1 == 2)
 	{
 		while (i-- != 0)
-			rrb(var);
-		pa(var);
-		ra(var);
+			rrb(var, 1);
+		pa(var, 1);
+		ra(var, 1);
 	}
 }
 
@@ -69,14 +69,14 @@ void	for_max(t_var *var, int max)
 	if (var->rule1 == 1)
 	{
 		while (i-- != 0)
-			rb(var);
-		pa(var);
+			rb(var, 1);
+		pa(var, 1);
 	}
 	else if (var->rule1 == 2)
 	{
 		while (i-- != 0)
-			rrb(var);
-		pa(var);
+			rrb(var, 1);
+		pa(var, 1);
 	}
 }
 
@@ -115,7 +115,7 @@ void	sort_it(t_var *var)
 				for_max(var, max--);
 		}
 		while (check_list(var) == 1)
-			rra(var);
+			rra(var, 1);
 		nbg--;
 	}
 }

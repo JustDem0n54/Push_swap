@@ -6,13 +6,13 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:30:03 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/22 17:06:52 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 19:13:57 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_var *var)
+void	sa(t_var *var, int i)
 {
 	int	temp;
 
@@ -21,11 +21,12 @@ void	sa(t_var *var)
 		temp = var->a->i;
 		var->a->i = var->a->next->i;
 		var->a->next->i = temp;
-		ft_printf("sa\n");
+		if (i == 1)
+			ft_printf("sa\n");
 	}
 }
 
-void	sb(t_var *var)
+void	sb(t_var *var, int i)
 {
 	int	temp;
 
@@ -34,11 +35,12 @@ void	sb(t_var *var)
 		temp = var->b->i;
 		var->b->i = var->b->next->i;
 		var->b->next->i = temp;
-		ft_printf("sb\n");
+		if (i == 1)
+			ft_printf("sb\n");
 	}
 }
 
-void	ss(t_var *var)
+void	ss(t_var *var, int i)
 {
 	int	temp;
 
@@ -54,10 +56,11 @@ void	ss(t_var *var)
 		var->b->i = var->b->next->i;
 		var->b->next->i = temp;
 	}
-	ft_printf("ss\n");
+	if (i == 0)
+		ft_printf("ss\n");
 }
 
-void	pb(t_var *var)
+void	pb(t_var *var, int i)
 {
 	void	*temp;
 
@@ -68,11 +71,12 @@ void	pb(t_var *var)
 		temp = var->a;
 		var->a = var->a->next;
 		free(temp);
-		ft_printf("pb\n");
+		if (i == 1)
+			ft_printf("pb\n");
 	}
 }
 
-void	pa(t_var *var)
+void	pa(t_var *var, int i)
 {
 	void	*temp;
 
@@ -84,6 +88,7 @@ void	pa(t_var *var)
 		temp = var->b;
 		var->b = var->b->next;
 		free(temp);
-		ft_printf("pa\n");
+		if (i == 1)
+			ft_printf("pa\n");
 	}
 }

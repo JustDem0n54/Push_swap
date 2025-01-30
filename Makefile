@@ -1,4 +1,5 @@
 NAME = push_swap
+CKECK = checker
 
 GREEN = \033[0;32m
 RED = \033[0;31m
@@ -16,6 +17,10 @@ FILE = main.c \
 		utils2.c \
 		utils3.c \
 
+SRCS_C = checker.c \
+		get_next_line.c \
+		get_next_line_utils .c\
+
 PRINTF = ft_printf/ft_printf.a
 RM = rm -f
 CC = cc
@@ -25,17 +30,22 @@ OBJDIR = obj
 
 SRCS = ${FILE}
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
+OBJS_C = $(addprefix $(OBJDIR)/, $(SRCS_C:.c=.o))
 
-all:	${NAME}
+all:	${NAME} 
 	@echo "${GREEN}Compilation OK !${RESET}"
 
 ${PRINTF}:	
 	@echo "${GREEN}Compilation FT_PRINTF...${RESET}"
 	@make -s -C ft_printf all
 
-${NAME}:	${OBJS} ${PRINTF}
+${CHECK}:	${OBJS_C}
+	@echo "${GREEN}Compilation CHECKER...${RESET}"
+	@${CC} ${CFLAGS} -o ${CHECK} ${OBJS_C} 
+
+${NAME}:	${OBJS} ${PRINTF} ${CHECK}
 	@echo "${GREEN}Compilation PUSH_SWAP...${RESET}"
-	@${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${PRINTF}
+	@${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${PRINTF} ${CHECK}
 
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)
