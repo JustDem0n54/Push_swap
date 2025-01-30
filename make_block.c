@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_bloc.c                                        :+:      :+:    :+:   */
+/*   make_block.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 17:12:01 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/30 15:21:38 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:51:55 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,17 @@ void	set_mark(t_var *var)
 void	count_mark(t_var *var)
 {
 	int	i;
+	int y;
 
 	i = 0;
+	y = 0;
 	var->count = ft_calloc((var->nbg), sizeof(int));
-	while (var->ref)
+	while (y <= var->size - 1)
 	{
-		if (var->ref->i >= var->mark[i] && var->ref->i < var->mark[i + 1])
+		if (var->val[y] >= var->mark[i] && var->val[y] < var->mark[i + 1])
 		{
 			var->count[i]++;
-			var->ref = var->ref->next;
+			y++;
 		}
 		else
 			i++;

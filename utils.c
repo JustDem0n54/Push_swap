@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 17:15:03 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/30 15:24:39 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:06:27 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ int	ft_lstadd_ref(t_list **lst, t_list *new)
 		{
 			l->next = new;
 			new->next = NULL;
-			return (1);
+			return (0);
 		}
 		if (l->i < new->i && (l->next->i > new->i || l->next == NULL))
-			return (new->next = l->next, l->next = new, 1);
+			return (new->next = l->next, l->next = new, 0);
 		if (new->i == l->i)
 			return (2);
 		l = l->next;

@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:05:55 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/30 15:20:30 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 15:53:18 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ void	ft_free(t_var *var)
 	ft_lstclear(&var->a);
 	ft_lstclear(&var->b);
 	ft_lstclear(&var->ref);
-	free(var->val);
+	if (var->val)
+		free(var->val);
 	free(var->mark);
 	free(var->count);
 	free(var);

@@ -14,7 +14,7 @@ FILE = main.c \
 		under_hundred.c \
 		sort_list.c \
 		utils2.c \
-		
+		utils3.c \
 
 PRINTF = ft_printf/ft_printf.a
 RM = rm -f

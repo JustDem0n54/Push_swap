@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:22:11 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/30 15:34:36 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:49:10 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,8 @@ int		ft_strcmp(const char *s1, const char *s2);
 void	ft_error(void);
 void	ft_free(t_var *var);
 int		check_char(char *str, int temp);
+void	init_array(t_var *var);
+void	by_size(t_var *var);
+int		init_list(t_var *var, int argc, char **argv);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:04:40 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/30 15:23:43 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:11:42 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ int	define_pose(t_var *var, int nbg)
 	int	i;
 
 	i = 0;
+	if (nbg < 0)
+		return (0);
 	while (var->val[i] <= var->mark[nbg])
 	{
 		if (i == var->size - 1)
