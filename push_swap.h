@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:22:11 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/30 19:10:58 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:03:26 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <fcntl.h>
 # include "ft_printf/ft_printf.h"
 
 # define BUFFER_SIZE 20
@@ -22,6 +23,7 @@
 typedef struct s_list
 {
 	int				i;
+	void			*c;
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
@@ -31,6 +33,7 @@ typedef struct s_var
 	t_list	*a;
 	t_list	*b;
 	t_list	*ref;
+	t_list	*inst;
 	int		*val;
 	int		nbg;
 	int		*mark;
@@ -83,9 +86,18 @@ int		check_char(char *str, int temp);
 void	init_array(t_var *var);
 void	by_size(t_var *var);
 int		init_list(t_var *var, int argc, char **argv);
+t_var	*init_val(int argc);
 char	*get_next_line(int fd);
 char	*ft_strcpy(char *str);
 char	*read_check(char *str, int fd, char *buff);
 char	*create_storage(char *str);
+char	*ft_strjoin(char *storage, char *buff, int size);
+size_t	ft_strlen(char *s);
+int		ft_strchr(char *str, int c);
+void	(*detect_entries(char *str))(t_var *var, int i);
+t_list	*ft_lstnew_check(char *str);
+void	ft_lstclear_check(t_list **lst);
+void	stock_instruction(t_var *var);
+int		do_instruction(t_var *var);
 
 #endif

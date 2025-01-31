@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 17:12:01 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/30 19:15:50 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:22:46 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	set_mark(t_var *var)
 void	count_mark(t_var *var)
 {
 	int	i;
-	int y;
+	int	y;
 
 	i = 0;
 	y = 0;

@@ -6,7 +6,7 @@
 /*   By: nrontard <nrontard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:30:03 by nrontard          #+#    #+#             */
-/*   Updated: 2025/01/30 19:13:08 by nrontard         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:23:03 by nrontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	for_4_and_5(t_var *var)
 
 int	check_char(char *str, int temp)
 {
-	char *comp;
+	char	*comp;
 
 	comp = ft_itoa(temp);
 	if (ft_strcmp(comp, str) != 0)
@@ -87,5 +87,5 @@ int	check_char(char *str, int temp)
 		return (1);
 	}
 	free(comp);
-	return(0);
+	return (0);
 }
